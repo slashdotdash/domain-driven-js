@@ -40,7 +40,7 @@ Publish Domain Events.
 
 ## Domain Services
 
-Domain logic, domain-specific operations and process that doesn't fit within Aggregates, Entities or Value Objects should be grouped within a Domain Service. 
+Domain logic, domain-specific operations and process that doesn't naturally fit within Aggregates, Entities or Value Objects should be grouped within a Domain Service. 
 
 Domain Services are stateless.
 
@@ -62,7 +62,11 @@ Application Services are the direct clients of the domain model. Responsible for
 
 No domain business logic should exist in Application Services. Instead, push them into the domain model; within Aggregates, Value Objects or Domain Services.
 
-Application Services may expose functionality through functions accepting primitive types, or possibly DTOs. Alternatively, and preferrably, they will accept Command objects.
+Provide the API through which external consumers may use the core domain. Application Services may expose functionality through functions accepting primitive types, or possibly DTOs. Alternatively, and preferrably, they will accept Command objects.
+
+## Infrastructure Services
+
+Used to abstract technical concerns (e.g. MSMQ, email provider, etc).
 
 ## Commands
 
